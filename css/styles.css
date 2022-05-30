@@ -370,15 +370,14 @@ img {
 .modal-icon {
   position: absolute;
   left: 12px;
-  bottom: 11px;
+  top: 50%;
 
   fill: #212121;
+
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .form-coment textarea::placeholder {
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 400;
   font-size: 12px;
   line-height: 14px;
   letter-spacing: 0.01em;
@@ -399,6 +398,11 @@ img {
 
 .modal-link {
   color: var(--hover-focus-color);
+}
+
+.form-input:hover + .modal-icon,
+.form-input:focus + .modal-icon {
+  fill: #2196f3;
 }
 
 .form-field {
@@ -444,7 +448,7 @@ img {
   background-color: #188ce8;
 }
 
-.form-checkbox {
+.checkbox-label {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -452,40 +456,7 @@ img {
   margin-bottom: 30px;
 }
 
-.custom-checkbox {
-  width: 16px;
-  height: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 2px;
-
-  outline: 2px solid black;
-  outline-offset: -2px;
-
-  transition: outline 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.custom-checkbox-icon {
-  fill: #ffffff;
-  opacity: 0;
-
-  transition: opacity 250ms ease-in;
-}
-
-.checkbox-input:checked + .custom-checkbox .custom-checkbox-icon {
-  opacity: 1;
-  background-color: #2196f3;
-  border-radius: 2px;
-}
-
-.checkbox-input:checked + .custom-checkbox {
-  outline: none;
-}
-
-.checkbox-label {
+.checkbox-title {
   font-size: 14px;
   line-height: 1.71;
   letter-spacing: 0.03em;
@@ -500,6 +471,41 @@ img {
   text-decoration-line: underline;
 
   color: #2196f3;
+}
+
+.custom-checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 16px;
+  height: 15px;
+
+  border-radius: 2px;
+  outline: 2px solid #212121;
+  outline-offset: -2px;
+
+  transition: outline 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.custom-checkbox-icon {
+  fill: #ffffff;
+  background-color: #2196f3;
+  border-radius: 2px;
+  opacity: 0;
+
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.checkbox-input:checked + .custom-checkbox .custom-checkbox-icon {
+  opacity: 1;
+}
+
+.checkbox-input:hover + .custom-checkbox,
+.checkbox-input:focus + .custom-checkbox,
+.checkbox-input:checked + .custom-checkbox {
+  outline: 2px solid #2196f3;
+  outline-offset: -2px;
 }
 
 .visually-hidden {
@@ -887,7 +893,7 @@ img {
   padding: 10px;
   background-color: #2f303a;
   border: 1px solid rgba(255, 255, 255, 0.3);
-
+  color: #ffffff;
   border-radius: 4px;
 
   margin-right: 12px;
